@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 tweets = []
 
 # Use glob to find all HTML files from each scroll iteration
-for filename in glob.glob("scrolls/page_scroll_*.html"):
+for filename in glob.glob("results/scrolls/page_scroll_*.html"):
     with open(filename, "r", encoding="utf-8") as file:
         html = file.read()
 
@@ -43,5 +43,5 @@ for tweet in unique_tweets:
     print(f"Tweet: {tweet['text']}\n")
 
 # Save all unique tweets to a JSON file
-with open("parsed_tweets.json", "w", encoding="utf-8") as outfile:
+with open("results/parsed_tweets.json", "w", encoding="utf-8") as outfile:
     json.dump(unique_tweets, outfile, indent=4)

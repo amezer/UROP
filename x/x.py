@@ -8,11 +8,11 @@ import os
 import shutil
 
 # Remove the 'scrolls' folder if it exists
-if os.path.exists("scrolls"):
-    shutil.rmtree("scrolls")
+if os.path.exists("results/scrolls"):
+    shutil.rmtree("results/scrolls")
 
 # Create a fresh 'scrolls' folder
-os.makedirs("scrolls")
+os.makedirs("results/scrolls")
 
 MAX_KEYWORDS = 5
 SCROLL_LIMIT = 5
@@ -67,7 +67,7 @@ def scrape_tweets(url, driver):
         time.sleep(5)  # Wait for new tweets to load
 
         # Save the HTML after each scroll iteration
-        filename = f"scrolls/page_scroll_{scroll_counter}.html"
+        filename = f"results/scrolls/page_scroll_{scroll_counter}.html"
         scroll_counter += 1
         with open(filename, "w", encoding="utf-8") as file:
             file.write(driver.page_source)
